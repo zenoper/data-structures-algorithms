@@ -19,14 +19,17 @@ class Array():
         return lastItem
 
     def delete(self, index):
-        item = self.data[index]
         self.shiftItems(index)
 
-    def shiftItems(self, index):
-        while index < self.length - 1:
-            self.data[index] = self.data[index + 1]
-            index += 1
-        del self.data[self.length - 1]
+    def shiftValues(self, index):
+        if index >= self.length - 1:
+            return "index out of range"
+        else:
+            while index < self.length - 1:
+                self.data[index] = self.data[index + 1]
+                index += 1
+            del self.data[self.length - 1]
+            self.length -= 1
 
 myArray = Array()
 myArray.push(5)
